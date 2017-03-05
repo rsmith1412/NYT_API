@@ -1,0 +1,10 @@
+.jumbotron {
+	text-align: center;
+	background-color: #20315A;
+	color: white;
+	font-size: 36px;
+}
+
+.resultsDiv {
+	border: 1px solid red;
+}
