@@ -5,6 +5,17 @@
 	font-size: 36px;
 }
 
+input {
+	width: 100%;
+}
+
 .resultsDiv {
-	border: 1px solid red;
+	margin: 5px;
+	margin-bottom: 10px;
+	background-color: #d3edd8;
+	padding: 10px;
+}
+
+.panel-heading {
+	background-color: #20315A;
 }
