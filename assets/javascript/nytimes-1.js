@@ -1,14 +1,14 @@
 //"b8cd8a1cde4841c893d0c68b900b87a4:0:74623931"
-
-$("#results").html("This works");
+//b9f91d369ff59547cd47b931d8cbc56b:0:74623931
+$("#results-div").append("This works");
 
 console.log("Hi");
 
 var makeQuery = function() {
-	var authKey = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931"
+	var authKey = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
 	var search = $("#searchTerm").val();
-	var yearBeg = $("#sYear").val();
-	var yearEnd = $("#eYear").val();
+	var yearBeg = $("#startYear").val();
+	var yearEnd = $("#endYear").val();
 
 	var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey + "&sort=newest";
 
@@ -78,7 +78,7 @@ var createSearchResults = function(data) {
 		newDiv.append(sect);
 		newDiv.append(time);
 
-		$("#results").append(newDiv);
+		$("#results-div").append(newDiv);
 
 	}
 };
@@ -105,7 +105,7 @@ $(document).ready(function() {
 	});
 
 	$("#clear-btn").click(function() {
-		$("#results").empty();
+		$("#results-div").empty();
 		$("#searchTerm").focus();
 	})
 

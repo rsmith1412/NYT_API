@@ -3,8 +3,9 @@
 //AuthKey used for NYT API
 //var createQuery = function() {
 
-var authKey = "b8cd8a1cde4841c893d0c68b900b87a4:0:74623931";
-//
+// var authKey = "b8cd8a1cde4841c893d0c68b900b87a4:0:74623931";
+var authKey = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
+// b9f91d369ff59547cd47b931d8cbc56b:0:74623931
 
 
 $(document).ready(function() {
@@ -12,39 +13,52 @@ $(document).ready(function() {
 	//On submission of form, execute following function
 	$("#search-btn").on('click', function(event) {
 
+		//Prevents page from reloading so we dont lose data
+		event.preventDefault();
+
 		//Grabs value on input fields on form submission
 		var qID = $("#searchTerm").val();
-		var records = $("#numRec").val();
+		var records = $("#numberOfRecordsToRetrieve").val();
 		var bDate = $("#startYear").val();
 		var eDate = $("#endYear").val();
 
 		//Base URL for NYT API
 		var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey + "&sort=newest";
 
+		// -- old
+		// url += '&' + $.param({
+		//   'q': qID,
+		//   'page': records,
+		//   'begin_date': bDate,
+		//   'end_date': eDate,
+		// });
 
-
-		//
-		url += '?' + $.param({
-		  'api-key': authKey,
-		  'q': qID,
-		  'page': records,
-		  'begin_date': bDate,
-		  'end_date': eDate,
-		});
-
-		//Prevents page from reloading so we dont lose data
-		event.preventdefault();
+		// -- new
+		if( qID ) url += ('&q='+qID);
+		if( records ) url += ('&page='+records);
+		if( bDate && bDate.length === 8 ) url += ('&begin_date='+bDate);
+		if( eDate && eDate.length === 8 ) url += ('&end_date='+eDate);
 
 		//AJAX to retrieve NYT API data
 		$.ajax({
 		  url: url,
-		  method: 'GET'
+		  type: 'GET'
 		  
 		}).done(function(response) {
 		  //Log the response to get object data
 		  console.log(response);
+
 		  //Type less, easier to read
-		  var results = response.docs;
+		  var results = response.response.docs;
+		  console.log('results: ', results);
+
+		  var numOfRecords = results.length;
+
+		  if(records) {
+		  	numOfRecords = records;
+		  }
+
+		  $('#results').html('');
 
 		  //For loop for the array
 		  for(var i = 0; i < results.length; i++) {
@@ -79,7 +93,7 @@ $(document).ready(function() {
 		  	}
 
 		  	//Time to append everything
-		  	$('#topArticles').append(newDiv);
+		  	$('#results-div').append(newDiv);
 
 		  	titleA.append(titleP);
 		  	newDiv.append(titleA).append(abstractP);
@@ -106,5 +120,4 @@ $(document).ready(function() {
 	});
 
 })
-
  

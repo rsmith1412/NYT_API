@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-  <script type="text/javascript" src="assets/javascript/nytimes-1.js"></script>
+  <script type="text/javascript" src="assets/javascript/nytimes.js"></script>
 
 
 </head>
@@ -23,7 +23,7 @@
 	          <div class="panel-heading">
 	            <h3 class="panel-title">Search Parameters</h3>
 	          </div>
-	          <div class="panel-body">
+	            <div class="panel-body">
 
 					<form class="form-group">
 						<label>Search Term:</label>
@@ -36,11 +36,11 @@
 						<br>
 						<label>Start Year(Optional):</label>
 						<br>
-						<input id="startYear" type="text" name="sYear">
+						<input id="startYear" type="text" name="sYear" placeholder="Format: YYYYMMDD">
 						<br>
 						<label>End Year(Optional):</label>
 						<br>
-						<input id="endYear" type="text" name="eYear">
+						<input id="endYear" type="text" name="eYear" placeholder="Format: YYYYMMDD">
 						<br>
 						<button id="search-btn" type="search" class="bn btn-default"><span class="glyphicon glyphicon-send"></span>Search</button>
 						<button id="clear-btn" class="bn btn-default"><span class="glyphicon glyphicon-trash"></span>Clear</button>
@@ -56,9 +56,10 @@
 	          <div class="panel-heading">
 	            <h3 class="panel-title">Top Articles</h3>
 	          </div>
-        	<div class="panel-body" id="results">
 
-        	</div>
+	          <div class="panel-body" id="results-div">
+
+	          </div>
     		</div>
     	</div>
 
