@@ -78,13 +78,13 @@ var createSearchResults = function(data) {
 		newDiv.append(sect);
 		newDiv.append(time);
 
-		$("results").append(newDiv);
+		$("#results").append(newDiv);
 
 	}
 };
 
 var initSearchButton = function() {
-	var queryURL = makeQuery;
+	var queryURL = makeQuery();
 
 	console.log(queryURL);
 
@@ -105,9 +105,9 @@ $(document).ready(function() {
 	});
 
 	$("#clear-btn").click(function() {
-		$("results").empty();
+		$("#results").empty();
 		$("#searchTerm").focus();
 	})
 
-	$("searchTerm").focus();
+	$("#searchTerm").focus();
 });
