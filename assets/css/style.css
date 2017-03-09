@@ -19,3 +19,12 @@ input {
 .panel-heading {
 	background-color: #20315A;
 }
+
+#topArticles {
+	min-height: 50px;
+}
+
+.results {
+	margin: 0 auto;
+	background-color: yellow;
+}

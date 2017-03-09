@@ -1,73 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<title>New York Times</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script type="text/javascript" src="assets/javascript/nytimes.js"></script>
+  <meta charset="utf-8">
+  <title>New York Times</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script type="text/javascript" src="assets/javascript/nytimes-1.js"></script>
+
 
 </head>
-
 <body>
 
-<div class="container">
+	<div class="container">
 
-	<div class="jumbotron"><h1 class="text-center"><span class="glyphicon glyphicon-book"></span>New York Times</h1></div>
-	
-	<div>
-		<div class="panel panel-primary">
-	        <div class="panel-heading">
-				<h3 class="panel-title">Search Parameters</h3>
+		<div class="jumbotron" id="headline"><span class="glyphicon glyphicon-list"></span>New York Times Search</div>
+
+		<div>
+	    	<div class="panel panel-primary">
+	          <div class="panel-heading">
+	            <h3 class="panel-title">Search Parameters</h3>
+	          </div>
+	          <div class="panel-body">
+
+					<form class="form-group">
+						<label>Search Term:</label>
+						<br>
+						<input id="searchTerm" type="text" name="searchText" placeholder="Search">
+						<br>
+						<label>Number of Records to Retrieve:</label>
+						<br>
+						<input id="numberOfRecordsToRetrieve" type="text" name="number">
+						<br>
+						<label>Start Year(Optional):</label>
+						<br>
+						<input id="startYear" type="text" name="sYear">
+						<br>
+						<label>End Year(Optional):</label>
+						<br>
+						<input id="endYear" type="text" name="eYear">
+						<br>
+						<button id="search-btn" type="search" class="bn btn-default"><span class="glyphicon glyphicon-send"></span>Search</button>
+						<button id="clear-btn" class="bn btn-default"><span class="glyphicon glyphicon-trash"></span>Clear</button>
+					</form>
+
+				</div>
 			</div>
-	
-		<div class="panel-body">
-
-			<form class="form-group">
-
-				<label>Search Term:</label>
-				<br>
-				<input id="searchTerm" type="text" name="searchText" placeholder="Search">
-				<br>
-				<label>Number of Records to Retrieve:</label>
-				<br>
-				<input type="text" name="number" id="numberOfRecordsToRetrieve">
-				<br>
-				<label>Start Year(Optional) YYYYMMDD:</label>
-				<br>
-				<input id="startYear" type="text" name="sYear">
-				<br>
-				<label>End Year(Optional) YYYYMMDD:</label>
-				<br>
-				<input id="endYear" type="text" name="eYear">
-				<br>
-				<button id="search" type="search" class="bn btn-default"><span class="glyphicon glyphicon-search">Search</button>
-				<button type="clearResults" class="bn btn-default"><span class="glyphicon glyphicon-refresh">Clear Results</button>
-
-			</form>
-
-		</div>
-	</div>
-
-	</div>
-
-	<div>
-
-		<div class="panel panel-primary">
-
-			<div class="panel-heading">
-
-				<h3 class="panel-title">Top Articles</h3>
-
-			</div>
-			
 		</div>
 
-	</div>
 
-</div>
+		<div>
+	    	<div class="panel panel-primary">
+	          <div class="panel-heading">
+	            <h3 class="panel-title">Top Articles</h3>
+	          </div>
+        	<div class="panel-body" id="results">
+
+        	</div>
+    		</div>
+    	</div>
+
+
+	</div>
 
 </body>
 </html>
